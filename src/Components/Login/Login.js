@@ -2,7 +2,7 @@ import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 import LoginForm from './LoginForm';
 import LoginCreate from './LoginCreate';
-import LoginPasswordLost from './LoginPasswordLost';
+import LoginPasswordLost from './LoginPasswordLost.js';
 import LoginPasswordReset from './LoginPasswordReset';
 
 const Login = () => {
