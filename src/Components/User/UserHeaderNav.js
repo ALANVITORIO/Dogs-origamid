@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavLink, useLocation, useNavigate } from 'react-router-dom';
+import { NavLink, useLocation } from 'react-router-dom';
 import { UserContext } from '../../UserContext';
 import { ReactComponent as MinhasFotos } from '../../Assets/feed.svg';
 import { ReactComponent as Estatisticas } from '../../Assets/estatisticas.svg';
@@ -18,13 +18,6 @@ const UserHeaderNav = () => {
     setMobileMenu(false);
   }, [pathname]);
 
-  function handleLogout() {
-    userLogout();
-    navigate('/login');
-  }
-
-  const navigate = useNavigate();
-
   return (
     <>
       {mobile && (
@@ -37,7 +30,7 @@ const UserHeaderNav = () => {
       )}
 
       <nav
-        className={`${mobile ? styles.navMobile : styles.nav}${mobileMenu &&
+        className={`${mobile ? styles.navMobile : styles.nav} ${mobileMenu &&
           styles.navMobileActive}`}
       >
         <NavLink to="/conta" end>
@@ -46,13 +39,13 @@ const UserHeaderNav = () => {
         </NavLink>
         <NavLink to="/conta/estatisticas">
           <Estatisticas />
-          {mobile && 'Estatisticas'}
+          {mobile && 'Estatísticas'}
         </NavLink>
         <NavLink to="/conta/postar">
           <AdicionarFoto />
           {mobile && 'Adicionar Foto'}
         </NavLink>
-        <button onClick={handleLogout}>
+        <button onClick={userLogout}>
           <Sair />
           {mobile && 'Sair'}
         </button>

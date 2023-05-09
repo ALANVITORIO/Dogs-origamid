@@ -34,12 +34,10 @@ const UserPhotoPost = () => {
   }
 
   function handleImgChange({ target }) {
-    if (target.fles && target.files[0]) {
-      setImg({
-        preview: URL.createObjectURL(target.files[0]),
-        raw: target.files[0],
-      });
-    }
+    setImg({
+      preview: URL.createObjectURL(target.files[0]),
+      raw: target.files[0],
+    });
   }
 
   return (
